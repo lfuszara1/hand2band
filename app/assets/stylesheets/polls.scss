@@ -1,0 +1,162 @@
+html {
+  margin: 0
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 95vh;
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+  align-items: center;
+  padding: 0;
+  min-width: 800px;
+
+  form {
+    min-width: 500px;
+  }
+
+  ol {
+    counter-reset: item;
+    padding: 0;
+  }
+
+  ol li {
+    list-style-type: none;
+    padding: 0 0 80px 0;
+  }
+
+  li:before {
+    content: counter(item) "\2794";
+    counter-increment: item;
+    font-weight: lighter;
+    font-size: 9px;
+    transform: translate(12px, 31px);
+    display: block;
+    color: blue;
+  }
+
+  li.second:before {
+    counter-increment: item +3;
+  }
+
+  li.third:before {
+    counter-increment: item +4;
+  }
+
+  p.label {
+    padding-left: 32px;
+  }
+
+  input {
+    display: inline-block;
+    max-width: 100%;
+    min-height: 30px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid gray;
+    min-width: 100%;
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid blue;
+    }
+
+    &::placeholder {
+      color: blue;
+    }
+  }
+
+  .submit-button {
+    margin-top: 20px;
+    background-color: blue;
+    color: white;
+    border: 0;
+    min-height: 25px;
+    min-width: 60px;
+    border-radius: 5px;
+  }
+}
+
+.formMargin {
+  margin-left: 32px;
+}
+
+.date-gropus {
+  display: flex;
+  flex-direction: row;
+
+  .date-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  span.slash {
+    padding: 25px 15px 0 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: blue;
+  }
+
+  input {
+    max-width: 40px;
+    min-height: 30px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid gray;
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid blue;
+    }
+
+    &::placeholder {
+      color: blue;
+    }
+  }
+}
+
+.navWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  background-image: linear-gradient(white, lightgray);
+
+  .progress {
+    min-width: 120px;
+    font-size: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .end-buttons {
+    border: 0;
+    color: white;
+    background-color: blue;
+    min-width: 30px;
+    min-height: 25px;
+  }
+
+  .end-buttons-left {
+    border-right: 1px solid gray;
+    border-radius: 5px 0 0 5px;
+    margin-left: 10px;
+  }
+
+  .end-buttons-right {
+    border-radius: 0 5px 5px 0;
+  }
+
+  .end-buttons-disabled {
+    color: gray;
+    cursor: default;
+  }
+}
