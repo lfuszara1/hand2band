@@ -1,5 +1,7 @@
 html {
-  margin: 0
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  overflow-y: hidden;
 }
 
 .wrapper {
@@ -11,7 +13,7 @@ html {
 .formWrapper {
   display: flex;
   flex-direction: column;
-  min-height: 90vh;
+  min-height: 94.5vh;
   align-items: center;
   padding: 0;
   min-width: 800px;

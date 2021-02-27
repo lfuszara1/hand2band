@@ -109,12 +109,12 @@ class FirstStepOfPolls extends React.Component {
                     <p className="label">First name</p>
                     <div className="formMargin">
                       <input name="first_name" id="first_name" type="text" placeholder="Type your answer here..." value={this.state.first_name} onChange={(event) => this.handleChangeTextField(event)} />
+                      {
+                        this.state.form_errors && this.state.form_errors.errors && this.state.form_errors.errors.first_name && this.state.form_errors.errors.first_name.map((error, i) => {
+                          return <p key={i}>{error}</p>
+                        })
+                      }
                     </div>
-                    {
-                      this.state.form_errors && this.state.form_errors.errors && this.state.form_errors.errors.first_name && this.state.form_errors.errors.first_name.map((error, i) => {
-                        return <p key={i}>{error}</p>
-                      })
-                    }
                   </li>
                   <li>
                     <p className="label">Birth date</p>
@@ -140,12 +140,12 @@ class FirstStepOfPolls extends React.Component {
                                  onChange={(event) => this.handleChangeTextField(event)}/>
                         </div>
                       </div>
+                      {
+                        this.state.form_errors && this.state.form_errors.errors && this.state.form_errors.errors.birth_date && this.state.form_errors.errors.birth_date.map((error, i) => {
+                          return <p key={i}>{error}</p>
+                        })
+                      }
                     </div>
-                    {
-                      this.state.form_errors && this.state.form_errors.errors && this.state.form_errors.errors.birth_date && this.state.form_errors.errors.birth_date.map((error, i) => {
-                        return <p key={i}>{error}</p>
-                      })
-                    }
                   </li>
                 </ol>
               </form>
