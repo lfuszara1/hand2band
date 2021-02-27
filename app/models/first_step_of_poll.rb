@@ -9,6 +9,5 @@ class FirstStepOfPoll
   validates :first_name, presence: true
   validates :first_name, length: { maximum: 255 }
   validates :birth_date, presence: true
-  validates :birth_date, timeliness: { after: -> { 150.years.ago }, before: -> { Date.current }, type: :date }
 
 end
