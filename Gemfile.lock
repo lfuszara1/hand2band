@@ -228,7 +228,7 @@ DEPENDENCIES
   selenium-webdriver
   turbolinks (~> 5)
   tzinfo-data
-  validates_timeliness (~> 5.0.0.beta1)
+  validates_timeliness
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)

@@ -31,6 +31,8 @@ gem 'faker'
 # Use React-Rails
 gem 'react-rails'
 
+gem 'validates_timeliness'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
