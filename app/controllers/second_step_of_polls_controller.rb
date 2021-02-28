@@ -17,9 +17,9 @@ class SecondStepOfPollsController < ApplicationController
         os_version: @poll_two.os_version
       )
 
-      render json: @poll_two, status: 201
+      render json: @poll_two, status: :ok
     else
-      render json: { message: "Validation failed", errors: @poll_two.errors.messages }, status: 400
+      render json: { errors: @poll_one.errors.messages }, status: :unprocessable_entity
     end
   end
 

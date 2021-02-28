@@ -50,7 +50,7 @@ class SecondStepOfPolls extends React.Component {
       },
       body: formData
     }).then(response => {
-      if (response.status === 400) {
+      if (response.status === 422) {
         response.json().then(
             (data) => {
               const errors = data.errors;
@@ -63,7 +63,7 @@ class SecondStepOfPolls extends React.Component {
               })
             }
         );
-      } else if (response.status === 201) {
+      } else if (response.status === 200) {
         this.setState({
           ...this.state,
           redirect_url: this.props.prev_url
@@ -88,7 +88,7 @@ class SecondStepOfPolls extends React.Component {
       },
       body: formData
     }).then(response => {
-      if (response.status === 400) {
+      if (response.status === 422) {
         response.json().then(
             (data) => {
               const errors = data.errors;
@@ -101,7 +101,7 @@ class SecondStepOfPolls extends React.Component {
               })
             }
         );
-      } else if (response.status === 201) {
+      } else if (response.status === 200) {
         this.setState({
           ...this.state,
           redirect_url: this.props.next_url
@@ -127,7 +127,7 @@ class SecondStepOfPolls extends React.Component {
                       <Select onChange={this.handleChange} placeholder="Type or select an option" options={this.options} value={this.options.filter(({value}) => value === this.state.selectedOption)} />
                       {
                         this.state.form_errors && this.state.form_errors.errors && this.state.form_errors.errors.os_version && this.state.form_errors.errors.os_version.map((error, i) => {
-                          return <p key={i}>{error}</p>
+                          return <p className="error-message" key={i}>{error}</p>
                         })
                       }
                     </div>

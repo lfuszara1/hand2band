@@ -44,7 +44,7 @@ class ThirdStepOfPolls extends React.Component {
       },
       body: formData
     }).then(response => {
-      if (response.status === 400) {
+      if (response.status === 422) {
         response.json().then(
             (data) => {
               const errors = data.errors;
@@ -57,7 +57,7 @@ class ThirdStepOfPolls extends React.Component {
               })
             }
         );
-      } else if (response.status === 201) {
+      } else if (response.status === 200) {
         this.setState({
           ...this.state,
           redirect_url: this.props.prev_url
@@ -82,7 +82,7 @@ class ThirdStepOfPolls extends React.Component {
       },
       body: formData
     }).then(response => {
-      if (response.status === 400) {
+      if (response.status === 422) {
         response.json().then(
             (data) => {
               const errors = data.errors;
@@ -95,7 +95,7 @@ class ThirdStepOfPolls extends React.Component {
               })
             }
         );
-      } else if (response.status === 204) {
+      } else if (response.status === 201) {
         this.setState({
           ...this.state,
           redirect_url: this.props.final_url
@@ -121,7 +121,7 @@ class ThirdStepOfPolls extends React.Component {
                       <input name="third_step_of_poll[about_you]" id="about_you" type="text" placeholder="Experienced dev with about ..." value={this.state.about_you} onChange={(event) => this.handleChangeTextField(event)} />
                       {
                         this.state.form_errors && this.state.form_errors.errors && this.state.form_errors.errors.about_you && this.state.form_errors.errors.about_you.map((error, i) => {
-                          return <p key={i}>{error}</p>
+                          return <p className="error-message" key={i}>{error}</p>
                         })
                       }
                       <button className="submit-button" onClick={(event) => this.handleSubmit(event)}>Submit</button>

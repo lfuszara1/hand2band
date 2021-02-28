@@ -23,11 +23,13 @@ class ThirdStepOfPollsController < ApplicationController
         Poll.create(full_params)
 
         session.delete(:poll)
+
+        render json: @poll_three, status: :created
       else
-        render json: @poll_three, status: 201
+        render json: @poll_three, status: :ok
       end
     else
-      render json: { message: "Validation failed", errors: @poll_three.errors.messages }, status: 400
+      render json: { errors: @poll_one.errors.messages }, status: :unprocessable_entity
     end
   end
 

@@ -72,7 +72,7 @@ class FirstStepOfPolls extends React.Component {
       },
       body: formData
     }).then(response => {
-      if (response.status === 400) {
+      if (response.status === 422) {
         response.json().then(
             (data) => {
               const errors = data.errors;
@@ -85,7 +85,7 @@ class FirstStepOfPolls extends React.Component {
               })
             }
         );
-      } else if (response.status === 201) {
+      } else if (response.status === 200) {
         this.setState({
           ...this.state,
           redirect_url: this.props.next_url
@@ -111,7 +111,7 @@ class FirstStepOfPolls extends React.Component {
                       <input name="first_name" id="first_name" type="text" placeholder="Type your answer here..." value={this.state.first_name} onChange={(event) => this.handleChangeTextField(event)} />
                       {
                         this.state.form_errors && this.state.form_errors.errors && this.state.form_errors.errors.first_name && this.state.form_errors.errors.first_name.map((error, i) => {
-                          return <p key={i}>{error}</p>
+                          return <p className="error-message" key={i}>{error}</p>
                         })
                       }
                     </div>
@@ -142,7 +142,7 @@ class FirstStepOfPolls extends React.Component {
                       </div>
                       {
                         this.state.form_errors && this.state.form_errors.errors && this.state.form_errors.errors.birth_date && this.state.form_errors.errors.birth_date.map((error, i) => {
-                          return <p key={i}>{error}</p>
+                          return <p key={i} className="error-message">{error}</p>
                         })
                       }
                     </div>

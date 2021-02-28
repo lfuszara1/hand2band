@@ -19,9 +19,9 @@ class FirstStepOfPollsController < ApplicationController
         birth_date: @poll_one.birth_date
       )
 
-      render json: @poll_one, status: 201
+      render json: @poll_one, status: :ok
     else
-      render json: { message: "Validation failed", errors: @poll_one.errors.messages }, status: 400
+      render json: { errors: @poll_one.errors.messages }, status: :unprocessable_entity
     end
   end
 
