@@ -109,11 +109,13 @@ class FirstStepOfPolls extends React.Component {
                     <p className="label">First name</p>
                     <div className="formMargin">
                       <input name="first_name" id="first_name" type="text" placeholder="Type your answer here..." value={this.state.first_name} onChange={(event) => this.handleChangeTextField(event)} />
-                      {
-                        this.state.form_errors && this.state.form_errors.errors && this.state.form_errors.errors.first_name && this.state.form_errors.errors.first_name.map((error, i) => {
-                          return <p className="error-message" key={i}>{error}</p>
-                        })
-                      }
+                      <div className="error-element">
+                        {
+                          this.state.form_errors && this.state.form_errors.errors && this.state.form_errors.errors.first_name && this.state.form_errors.errors.first_name.map((error, i) => {
+                            return <div key={i} className="error-message">{error}</div>
+                          })
+                        }
+                      </div>
                     </div>
                   </li>
                   <li>
@@ -140,11 +142,13 @@ class FirstStepOfPolls extends React.Component {
                                  onChange={(event) => this.handleChangeTextField(event)}/>
                         </div>
                       </div>
-                      {
-                        this.state.form_errors && this.state.form_errors.errors && this.state.form_errors.errors.birth_date && this.state.form_errors.errors.birth_date.map((error, i) => {
-                          return <p key={i} className="error-message">{error}</p>
-                        })
-                      }
+                      <div className="error-element">
+                        {
+                          this.state.form_errors && this.state.form_errors.errors && this.state.form_errors.errors.birth_date && this.state.form_errors.errors.birth_date.map((error, i) => {
+                            return <div key={i} className="error-message">{error}</div>
+                          })
+                        }
+                      </div>
                     </div>
                   </li>
                 </ol>
@@ -153,10 +157,10 @@ class FirstStepOfPolls extends React.Component {
             <div className="navWrapper">
               <div className="progress">
                 <span>{this.state.poll_completed} of 4 answered</span>
-                <ProgressBar isLabelVisible={false} bgcolor="blue" height="5px" completed={this.state.poll_completed * 100 / 4} />
+                <ProgressBar baseBgColor="gray" isLabelVisible={false} bgcolor="blue" height="5px" completed={this.state.poll_completed * 100 / 4} />
               </div>
-              <button className="end-buttons end-buttons-left end-buttons-disabled">⮝</button>
-              <button className="end-buttons end-buttons-right" onClick={(event) => this.handleNext(event)}>⮟</button>
+              <button className="end-buttons end-buttons-left end-buttons-disabled"><div className="arrowhead-up">⌃</div></button>
+              <button className="end-buttons end-buttons-right" onClick={(event) => this.handleNext(event)}><div className="arrowhead-down">⌄</div></button>
             </div>
           </div>
         </React.Fragment>

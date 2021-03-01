@@ -19,7 +19,7 @@ class SecondStepOfPollsController < ApplicationController
 
       render json: @poll_two, status: :ok
     else
-      render json: { errors: @poll_one.errors.messages }, status: :unprocessable_entity
+      render json: { errors: @poll_two.errors.messages }, status: :unprocessable_entity
     end
   end
 

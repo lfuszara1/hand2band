@@ -29,7 +29,7 @@ class ThirdStepOfPollsController < ApplicationController
         render json: @poll_three, status: :ok
       end
     else
-      render json: { errors: @poll_one.errors.messages }, status: :unprocessable_entity
+      render json: { errors: @poll_three.errors.messages }, status: :unprocessable_entity
     end
   end
 
