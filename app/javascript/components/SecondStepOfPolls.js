@@ -142,7 +142,7 @@ class SecondStepOfPolls extends React.Component {
             <div className="navWrapper">
               <div className="progress">
                 <span>{this.state.poll_completed} of 4 answered</span>
-                <ProgressBar baseBgColor="gray" isLabelVisible={false} bgcolor="blue" height="5px" completed={this.state.poll_completed * 100 / 4} />
+                <ProgressBar baseBgColor="darkgray" isLabelVisible={false} bgcolor="gray" height="5px" completed={this.state.poll_completed * 100 / 4} />
               </div>
               <button className="end-buttons end-buttons-left" onClick={(event) => this.handlePrev(event)}><div className="arrowhead-up">⌃</div></button>
               <button className="end-buttons end-buttons-right" onClick={(event) => this.handleNext(event)}><div className="arrowhead-down">⌄</div></button>
